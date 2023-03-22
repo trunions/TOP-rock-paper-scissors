@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    function getComputersChoice() {
+        let randomNumber = Math.floor(Math.random() * 100) + 1
+        if (randomNumber <= 34) {
+            return 'rock'
+        } else if (randomNumber <= 68) {
+            return 'paper'
+        } else {
+            return 'scissors'
+        }
+    }
+     
+    function playRound(input, computerSelection){
+        if (input === 'ROCK' && computerSelection === 'rock'){
+            return 'Tied! Both Rock!'
+        }else if(input === 'PAPER' && computerSelection === 'paper'){
+            return 'Tied! Both Paper!'
+        }else if(input === 'SCISSORS' && computerSelection === 'scissors'){
+            return 'Tied! Both Scissors!'
+        }else if(input === 'ROCK' && computerSelection === 'paper'){
+            return 'Computer Wins! Paper beats Rock!'
+        }else if(input === 'ROCK' && computerSelection === 'scissors'){
+            return 'Player Wins! Rock beats Scissors!'
+        }else if(input === 'PAPER' && computerSelection === 'rock'){
+            return 'Player Wins! Paper beats Rock!'
+        }else if(input === 'PAPER' && computerSelection === 'scissors'){
+            return 'Computer Wins! Scissors beats Paper!'
+        }else if(input === 'SCISSORS' && computerSelection === 'paper'){
+        return 'Player wins! Scissors beats Paper!'
+        }else if(input === 'SCISSORS' && computerSelection === 'rock'){
+            return 'Computer Wins! Rock beats Scissors!'
+        }
+        }
+    
+
+    function game(){
+        
+        for(let i = 1; i <= 5; i++){
+            const input = prompt('Rock, Paper, or Scissors?', '')
+            const playerSelection = input.toUpperCase()
+            let computerSelection = getComputersChoice()
+            console.log(`Round ${i}: ${playRound(playerSelection,computerSelection)}`)
+        }
+    }
+
+    
+    
+
+    game()
+
+</script>
+
+</html>
